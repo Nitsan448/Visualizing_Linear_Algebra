@@ -1,6 +1,6 @@
 
 
-public enum ManagerStatus
+public enum eManagerStatus
 {
     Shutdown,
     Initializing,

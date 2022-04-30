@@ -5,10 +5,9 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
-public class ChooseOperationUI : MonoBehaviour
+public class ChooseOperationDropDown : MonoBehaviour
 {
     private TMP_Dropdown dropDown;
-    public static Action OperationChanged;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +23,7 @@ public class ChooseOperationUI : MonoBehaviour
 
         dropDown.AddOptions(options);
         dropDown.onValueChanged.AddListener(delegate { SetVectorOperation(dropDown.value); });
+        dropDown.value = 0;
     }
 
 
@@ -32,6 +32,6 @@ public class ChooseOperationUI : MonoBehaviour
     {
         eVectorOperations operation = (eVectorOperations)operationIndex;
         Managers.Vectors.vectorOperation.operation = operation;
-        OperationChanged?.Invoke();
+        Managers.Vectors.UpdateResult();
     }
 }
